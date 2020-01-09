@@ -1,7 +1,7 @@
-# This project is no more under further development, You are welcome to take this forward if interested. Thank you.
+# This project is specially written for those Laravel users who are having trouble with CCAvenue integration.
 
 
-# CCAvenue Payment Gateway integration for Laravel 5.x (Supports PHP 7.1)
+# CCAvenue Payment Gateway integration for Laravel 5.x (Supports PHP 7.3)
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -66,15 +66,10 @@ Initiate Purchase Request and Redirect using the default gateway:-
 
 ```php 
       /* All Required Parameters by your Gateway */
-      
       $parameters = [
-      
         'tid' => '1233221223322',
-        
         'order_id' => '1232212',
-        
         'amount' => '1200.00',
-        
       ];
       
       $order = Payment::prepare($parameters);
@@ -86,15 +81,10 @@ Initiate Purchase Request and Redirect using any of the configured gateway:-
       /* All Required Parameters by your Gateway */
       
       $parameters = [
-      
         'tid' => '1233221223322',
-        
         'order_id' => '1232212',
-        
         'amount' => '1200.00',
-        
       ];
-      
       // gateway = CCAvenue / others
       
       $order = Payment::gateway('NameOfGateway')->prepare($parameters);
@@ -108,12 +98,9 @@ Also add the response route to the `remove_csrf_check` config item to remove CSR
     {
         // For default Gateway
         $response = Payment::response($request);
-        
         // For Otherthan Default Gateway
         $response = Payment::gateway('NameOfGatewayUsedDuringRequest')->response($request);
-
         dd($response);
-    
     }  
 </code></pre>
 
